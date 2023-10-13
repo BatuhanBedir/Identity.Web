@@ -144,6 +144,7 @@ namespace Identity.Web.Controllers
             var token = TempData["token"];
 
             var hasUser = await _userManager.FindByIdAsync(userId?.ToString()!);
+            
             if (hasUser is null || token is null)
             {
                 ModelState.AddModelError(String.Empty, "Kullanıcı bulunamamıştır");
