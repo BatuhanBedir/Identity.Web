@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vRPiTz0mXsxD0CqBJcRcSoAYXSRyvercpvOpznqmUxU=",
+  "Hash": "EXisOklmX9wXwGOZajxCI7YAN6rnNHG1f9QQtb8rZjE=",
   "Source": "Identity.Web",
   "BasePath": "_content/Identity.Web",
   "Mode": "Default",
@@ -1193,6 +1193,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\BatuhanBedir\\OneDrive\\Masaüstü\\Asp.NetCore Identity\\Identity.Web\\Identity.Web\\wwwroot\\userpictures\\1449aecc-6724-409b-8294-cf123fb50c00.jpg",
+      "SourceId": "Identity.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\BatuhanBedir\\OneDrive\\Masaüstü\\Asp.NetCore Identity\\Identity.Web\\Identity.Web\\wwwroot\\",
+      "BasePath": "_content/Identity.Web",
+      "RelativePath": "userpictures/1449aecc-6724-409b-8294-cf123fb50c00.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\userpictures\\1449aecc-6724-409b-8294-cf123fb50c00.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\BatuhanBedir\\OneDrive\\Masaüstü\\Asp.NetCore Identity\\Identity.Web\\Identity.Web\\wwwroot\\userpictures\\default_user_picture.jpg",
+      "SourceId": "Identity.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\BatuhanBedir\\OneDrive\\Masaüstü\\Asp.NetCore Identity\\Identity.Web\\Identity.Web\\wwwroot\\",
+      "BasePath": "_content/Identity.Web",
+      "RelativePath": "userpictures/default_user_picture.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\userpictures\\default_user_picture.jpg"
     }
   ]
 }

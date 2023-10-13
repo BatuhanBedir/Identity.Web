@@ -245,6 +245,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\BatuhanBedir\\OneDrive\\Masaüstü\\Asp.NetCore Identity\\Identity.Web\\Identity.Web\\wwwroot\\userpictures\\1449aecc-6724-409b-8294-cf123fb50c00.jpg",
+      "PackagePath": "staticwebassets\\userpictures\\1449aecc-6724-409b-8294-cf123fb50c00.jpg"
+    },
+    {
+      "Id": "C:\\Users\\BatuhanBedir\\OneDrive\\Masaüstü\\Asp.NetCore Identity\\Identity.Web\\Identity.Web\\wwwroot\\userpictures\\default_user_picture.jpg",
+      "PackagePath": "staticwebassets\\userpictures\\default_user_picture.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Identity.Web.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
