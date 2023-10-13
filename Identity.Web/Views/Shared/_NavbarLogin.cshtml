@@ -7,8 +7,9 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
+                    <a class="dropdown-item" asp-action="Index" asp-controller="Member">Profil</a>
+                    <a class="dropdown-item" asp-action="PasswordChange" asp-controller="Member">Şifreni Değiştir</a>
                     <a class="dropdown-item" asp-route-returnurl="/Home/Index" asp-action="Logout" asp-controller="Member">Çıkış Yap</a>
-                    <a class="dropdown-item" asp-route-returnurl="/Home/Privacy" asp-action="Logout" asp-controller="Member">Çıkış Yap2</a>
                 </li>
             </ul>
         </li>

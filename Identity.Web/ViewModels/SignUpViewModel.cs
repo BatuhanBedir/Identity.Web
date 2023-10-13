@@ -20,11 +20,13 @@ public record SignUpViewModel
     [DataType(DataType.Password)]
     [Display(Name = "Şifre: ")]
     [Required(ErrorMessage = "Bu alan boş geçilemez")]
+    [MinLength(6,ErrorMessage = "Şifreniz en az 6 karakter olabilir")]
     public string Password { get; set; } = null!;
 
     [DataType(DataType.Password)]
     [Compare(nameof(Password), ErrorMessage = "Şifreler birbiriyle uyuşmuyor")]
     [Display(Name = "Şifre Tekrar: ")]
     [Required(ErrorMessage = "Bu alan boş geçilemez")]
+    [MinLength(6,ErrorMessage = "Şifreniz en az 6 karakter olabilir")]
     public string PasswordConfirm { get; set; } = null!;
 }
