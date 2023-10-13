@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Identity.Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Identity.Web.Extensions;
+using Identity.Web.Services;
 
 namespace Identity.Web.Controllers
 {
@@ -12,13 +13,15 @@ namespace Identity.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IEmailService _emailService;
 
         public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager,
-            SignInManager<AppUser> signInManager)
+            SignInManager<AppUser> signInManager, IEmailService emailService)
         {
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailService = emailService;
         }
 
 
@@ -69,7 +72,7 @@ namespace Identity.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(SignInViewModel model, string? returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Action("Index", "Home");
+            returnUrl ??= Url.Action("Index", "Home");
 
             var hasUser = await _userManager.FindByEmailAsync(model.Email);
             if (hasUser is null)
@@ -83,7 +86,7 @@ namespace Identity.Web.Controllers
 
             if (signInResult.Succeeded)
             {
-                return Redirect(returnUrl);
+                return Redirect(returnUrl!);
             }
 
             if (signInResult.IsLockedOut)
@@ -92,7 +95,70 @@ namespace Identity.Web.Controllers
                 return View();
             }
 
-            ModelState.AddModelErrorList(new List<string>() { "Email veya şifre yanlış",$"Başarısız giriş sayısı: {await _userManager.GetAccessFailedCountAsync(hasUser)}" });
+            ModelState.AddModelErrorList(new List<string>()
+            {
+                "Email veya şifre yanlış",
+                $"Başarısız giriş sayısı: {await _userManager.GetAccessFailedCountAsync(hasUser)}"
+            });
+            return View();
+        }
+
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordViewModel forgetPasswordViewModel)
+        {
+            var hasUser = await _userManager.FindByEmailAsync(forgetPasswordViewModel.Email);
+            if (hasUser is null)
+            {
+                ModelState.AddModelError(string.Empty, "Bu email adresine sahip kullanıcı bulunamamıştır.");
+                return View();
+            }
+
+            string passwordResetToken = await _userManager.GeneratePasswordResetTokenAsync(hasUser);
+            var passwordResetLink = Url.Action("ResetPassword", "Home",
+                new { userId = hasUser.Id, Token = passwordResetToken }, HttpContext.Request.Scheme);
+
+            await _emailService.SendResetPasswordEmail(passwordResetLink!, forgetPasswordViewModel.Email);
+
+            TempData["SuccessMessage"] = "Şifre yenileme linki, eposta adresinize gönderilmiştir";
+
+            return RedirectToAction("ForgetPassword");
+        }
+
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            TempData["userId"] = userId;
+            TempData["token"] = token;
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            var userId = TempData["userId"];
+            var token = TempData["token"];
+
+            var hasUser = await _userManager.FindByIdAsync(userId?.ToString()!);
+            if (hasUser is null || token is null)
+            {
+                ModelState.AddModelError(String.Empty, "Kullanıcı bulunamamıştır");
+                return View();
+            }
+
+            var result = await _userManager.ResetPasswordAsync(hasUser, token.ToString()!, model.Password);
+            if (result.Succeeded)
+            {
+                TempData["SuccessMessage"] = "Şifreniz başarıyla yenilenmiştir";
+            }
+            else
+            {
+                ModelState.AddModelErrorList(result.Errors.Select(x => x.Description).ToList());
+            }
             return View();
         }
 

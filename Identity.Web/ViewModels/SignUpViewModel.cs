@@ -17,10 +17,12 @@ public record SignUpViewModel
     [Required(ErrorMessage = "Bu alan boş geçilemez")]
     public string Phone { get; set; } = null!;
 
+    [DataType(DataType.Password)]
     [Display(Name = "Şifre: ")]
     [Required(ErrorMessage = "Bu alan boş geçilemez")]
     public string Password { get; set; } = null!;
 
+    [DataType(DataType.Password)]
     [Compare(nameof(Password), ErrorMessage = "Şifreler birbiriyle uyuşmuyor")]
     [Display(Name = "Şifre Tekrar: ")]
     [Required(ErrorMessage = "Bu alan boş geçilemez")]
