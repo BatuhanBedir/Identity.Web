@@ -7,16 +7,20 @@
                 @User.Identity.Name
             </a>
             <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-item" asp-action="Index" asp-controller="Member">Profil</a>
-                    <a class="dropdown-item" asp-action="PasswordChange" asp-controller="Member">Şifreni Değiştir</a>
-                    <a class="dropdown-item" asp-action="UserEdit" asp-controller="Member">Kullanıcı Güncelle</a>
-                    @if (User.HasClaim(x =>x.Type ==ClaimTypes.Role &&  x.Value == "admin"))
-                    {
+                <li><a class="dropdown-item" asp-action="Index" asp-controller="Member">Profil</a><li/>
+                <li><a class="dropdown-item" asp-action="PasswordChange" asp-controller="Member">Şifreni Değiştir</a></li>
+                <li><a class="dropdown-item" asp-action="UserEdit" asp-controller="Member">Kullanıcı Güncelle</a></li>
+                <li><a class="dropdown-item" asp-action="Claims" asp-controller="Member">Claims</a></li>
+                @if (User.HasClaim(x => x.Type == ClaimTypes.Role && x.Value == "admin"))
+                {
+                    <li>
                         <a class="dropdown-item" asp-action="Index" asp-area="Admin" asp-controller="Home">Admin</a>
-                    }
+                    </li>
+                }
+                <li>
                     <a class="dropdown-item" asp-route-returnurl="/Home/Index" asp-action="Logout" asp-controller="Member">Çıkış Yap</a>
                 </li>
+
             </ul>
         </li>
     </ul>

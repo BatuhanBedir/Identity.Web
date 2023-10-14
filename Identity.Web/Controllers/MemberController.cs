@@ -1,4 +1,5 @@
-﻿using Identity.Web.Extensions;
+﻿using System.Security.Claims;
+using Identity.Web.Extensions;
 using Identity.Web.Models;
 using Identity.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -139,20 +140,39 @@ public class MemberController : Controller
 
         await _userManager.UpdateSecurityStampAsync(currentUser);
         await _signInManager.SignOutAsync();
-        await _signInManager.SignInAsync(currentUser,true);
-        
+        await _signInManager.SignInAsync(currentUser, true);
+
         TempData["SuccessMessage"] = "Üye bilgileri başarıyla değiştirilmiştir";
-        
+
         return View();
     }
 
+    public IActionResult Claims()
+    {
+        //User.Identity.Name
+        // User.Claims.First(x => x.Type == ClaimTypes.Name)
+        var userClaimList = User.Claims.Select(x => new ClaimViewModel()
+        {
+            Issuer = x.Issuer,
+            Type = x.Type,
+            Value = x.Value,
+        }).ToList();
+        return View(userClaimList);
+    }
+
+    [Authorize(Policy = "AnkaraPolicy")]
+    public IActionResult AnkaraPage()
+    {
+        return View();
+    }
+    
     public async Task<IActionResult> AccessDenied(string returnUrl)
     {
         string message = string.Empty;
         message = "Bu sayfayı görmeye yetkiniz yok.";
 
         ViewBag.message = message;
-        
+
         return View();
     }
 }

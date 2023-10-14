@@ -1,7 +1,9 @@
+using Identity.Web.ClaimProviders;
 using Identity.Web.Extensions;
 using Identity.Web.Models;
 using Identity.Web.OptionsModels;
 using Identity.Web.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -28,6 +30,15 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 builder.Services.AddIdentityWithExt();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IClaimsTransformation, UserClaimProvider>();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AnkaraPolicy", policy =>
+    {
+        policy.RequireClaim("city","Ankara");
+    });
+});
 
 builder.Services.ConfigureApplicationCookie(opt =>
 {

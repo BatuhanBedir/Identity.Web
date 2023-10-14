@@ -258,3 +258,4 @@ C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Iden
 C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Web\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Web\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Web\obj\Debug\net7.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Web\obj\Debug\net7.0\Identity.Web.sourcelink.json
