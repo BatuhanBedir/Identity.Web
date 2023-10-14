@@ -145,4 +145,14 @@ public class MemberController : Controller
         
         return View();
     }
+
+    public async Task<IActionResult> AccessDenied(string returnUrl)
+    {
+        string message = string.Empty;
+        message = "Bu sayfayı görmeye yetkiniz yok.";
+
+        ViewBag.message = message;
+        
+        return View();
+    }
 }
