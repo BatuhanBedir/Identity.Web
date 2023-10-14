@@ -11,6 +11,7 @@
         <th>Id</th>
         <th>Kullanıcı Adı</th>
         <th>Email</th>
+        <th>Rol İşlemler</th>
     </tr>
     </thead>
     <tbody>
@@ -20,7 +21,10 @@
             <td>@item.Id</td>
             <td>@item.UserName</td>
             <td>@item.Email</td>
+            <td>
+                <a asp-controller="Roles" asp-action="AssignRoleToUser" asp-route-id="@item.Id">Rol ata</a>
+            </td>
         </tr>
-    }  
+    }
     </tbody>
 </table>
