@@ -165,7 +165,11 @@ public class MemberController : Controller
     {
         return View();
     }
-    
+    [Authorize(Policy = "ExchangePolicy")]
+    public IActionResult ExchangePage()
+    {
+        return View();
+    }
     public async Task<IActionResult> AccessDenied(string returnUrl)
     {
         string message = string.Empty;

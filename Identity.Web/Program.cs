@@ -2,8 +2,10 @@ using Identity.Web.ClaimProviders;
 using Identity.Web.Extensions;
 using Identity.Web.Models;
 using Identity.Web.OptionsModels;
+using Identity.Web.Requirements;
 using Identity.Web.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -31,12 +33,17 @@ builder.Services.AddIdentityWithExt();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IClaimsTransformation, UserClaimProvider>();
+builder.Services.AddScoped<IAuthorizationHandler, ExchangeExpireRequirementHandler>();
 
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AnkaraPolicy", policy =>
     {
         policy.RequireClaim("city","Ankara");
+    });
+    options.AddPolicy("ExchangePolicy", policy =>
+    {
+        policy.AddRequirements(new ExchangeExpireRequirement());
     });
 });
 

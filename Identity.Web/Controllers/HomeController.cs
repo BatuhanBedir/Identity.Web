@@ -1,6 +1,7 @@
 ﻿using Identity.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 using Identity.Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Identity.Web.Extensions;
@@ -52,16 +53,23 @@ namespace Identity.Web.Controllers
                 Email = signUpViewModel.Email,
             }, signUpViewModel.Password);
 
-            if (identityResult.Succeeded)
+            if (!identityResult.Succeeded)
             {
-                TempData["SuccessMessage"] = "Üyelik kayıt işlemi başarıyla gerçekleşmiştir.";
-                return RedirectToAction();
+                ModelState.AddModelErrorList(identityResult.Errors.Select(x => x.Description).ToList());
+                return View();
             }
+            var exchangeExpireClaim = new Claim("ExchangeExpireDate", DateTime.Now.AddDays(10).ToString());
+            var user = await _userManager.FindByNameAsync(signUpViewModel.UserName);
+            var claimResult = await _userManager.AddClaimAsync(user!, exchangeExpireClaim);
 
-            ModelState.AddModelErrorList(identityResult.Errors.Select(x => x.Description).ToList());
-
-
-            return View();
+            if (!claimResult.Succeeded)
+            {
+                ModelState.AddModelErrorList(claimResult.Errors.Select(x => x.Description).ToList());
+                return View();
+            }
+            
+            TempData["SuccessMessage"] = "Üyelik kayıt işlemi başarıyla gerçekleşmiştir.";
+            return RedirectToAction("SignIn");
         }
 
         public IActionResult SignIn()
@@ -76,6 +84,7 @@ namespace Identity.Web.Controllers
             {
                 return View();
             }
+
             returnUrl ??= Url.Action("Index", "Home");
 
             var hasUser = await _userManager.FindByEmailAsync(model.Email);
@@ -148,7 +157,7 @@ namespace Identity.Web.Controllers
             var token = TempData["token"];
 
             var hasUser = await _userManager.FindByIdAsync(userId?.ToString()!);
-            
+
             if (hasUser is null || token is null)
             {
                 ModelState.AddModelError(String.Empty, "Kullanıcı bulunamamıştır");
@@ -164,6 +173,7 @@ namespace Identity.Web.Controllers
             {
                 ModelState.AddModelErrorList(result.Errors.Select(x => x.Description).ToList());
             }
+
             return View();
         }
 
