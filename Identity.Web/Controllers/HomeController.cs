@@ -58,6 +58,7 @@ namespace Identity.Web.Controllers
                 ModelState.AddModelErrorList(identityResult.Errors.Select(x => x.Description).ToList());
                 return View();
             }
+
             var exchangeExpireClaim = new Claim("ExchangeExpireDate", DateTime.Now.AddDays(10).ToString());
             var user = await _userManager.FindByNameAsync(signUpViewModel.UserName);
             var claimResult = await _userManager.AddClaimAsync(user!, exchangeExpireClaim);
@@ -67,7 +68,7 @@ namespace Identity.Web.Controllers
                 ModelState.AddModelErrorList(claimResult.Errors.Select(x => x.Description).ToList());
                 return View();
             }
-            
+
             TempData["SuccessMessage"] = "Üyelik kayıt işlemi başarıyla gerçekleşmiştir.";
             return RedirectToAction("SignIn");
         }
@@ -97,23 +98,28 @@ namespace Identity.Web.Controllers
             var signInResult =
                 await _signInManager.PasswordSignInAsync(hasUser, model.Password, model.RememberMe, true);
 
-            if (signInResult.Succeeded)
-            {
-                return Redirect(returnUrl!);
-            }
-
             if (signInResult.IsLockedOut)
             {
                 ModelState.AddModelErrorList(new List<string>() { "3 dakika boyunca giriş yapamazsınız" });
                 return View();
             }
 
-            ModelState.AddModelErrorList(new List<string>()
+            if (!signInResult.Succeeded)
             {
-                "Email veya şifre yanlış",
-                $"Başarısız giriş sayısı: {await _userManager.GetAccessFailedCountAsync(hasUser)}"
-            });
-            return View();
+                ModelState.AddModelErrorList(new List<string>()
+                {
+                    "Email veya şifre yanlış",
+                    $"Başarısız giriş sayısı: {await _userManager.GetAccessFailedCountAsync(hasUser)}"
+                });
+                return View();
+            }
+            
+            if (hasUser.BirthDate.HasValue)
+            {
+                await _signInManager.SignInWithClaimsAsync(hasUser, model.RememberMe,
+                    new[] { new Claim("birthdate", hasUser.BirthDate.Value.ToString()) });
+            }
+            return Redirect(returnUrl!);
         }
 
         public IActionResult ForgetPassword()

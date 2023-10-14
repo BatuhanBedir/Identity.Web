@@ -140,7 +140,17 @@ public class MemberController : Controller
 
         await _userManager.UpdateSecurityStampAsync(currentUser);
         await _signInManager.SignOutAsync();
-        await _signInManager.SignInAsync(currentUser, true);
+        
+        if (model.BirthDate.HasValue)
+        {
+            await _signInManager.SignInWithClaimsAsync(currentUser, true,
+                new[] { new Claim("birthdate", currentUser.BirthDate.Value.ToString()) });
+        }
+        else
+        {
+            await _signInManager.SignInAsync(currentUser, true);
+        }
+
 
         TempData["SuccessMessage"] = "Üye bilgileri başarıyla değiştirilmiştir";
 
@@ -165,8 +175,15 @@ public class MemberController : Controller
     {
         return View();
     }
+
     [Authorize(Policy = "ExchangePolicy")]
     public IActionResult ExchangePage()
+    {
+        return View();
+    }
+    
+    [Authorize(Policy = "ViolencePolicy")]
+    public IActionResult ViolencePage()
     {
         return View();
     }
