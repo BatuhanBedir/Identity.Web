@@ -1,0 +1,17 @@
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\bin\Debug\net7.0\Identity.Repository.deps.json
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\bin\Debug\net7.0\Identity.Repository.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\bin\Debug\net7.0\Identity.Repository.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\bin\Debug\net7.0\Identity.Core.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\bin\Debug\net7.0\Identity.Core.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.csproj.AssemblyReference.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.AssemblyInfoInputs.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.AssemblyInfo.cs
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.csproj.CoreCompileInputs.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.csproj.CopyComplete
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\refint\Identity.Repository.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\ref\Identity.Repository.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\bin\Debug\net7.0\Identity.Repository.runtimeconfig.json
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Repository\obj\Debug\net7.0\Identity.Repository.genruntimeconfig.cache

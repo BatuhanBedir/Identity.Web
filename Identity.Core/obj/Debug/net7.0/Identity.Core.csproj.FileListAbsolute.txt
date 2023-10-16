@@ -1,0 +1,11 @@
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\bin\Debug\net7.0\Identity.Core.deps.json
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\bin\Debug\net7.0\Identity.Core.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\bin\Debug\net7.0\Identity.Core.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\Identity.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\Identity.Core.AssemblyInfoInputs.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\Identity.Core.AssemblyInfo.cs
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\Identity.Core.csproj.CoreCompileInputs.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\Identity.Core.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\refint\Identity.Core.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\Identity.Core.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Core\obj\Debug\net7.0\ref\Identity.Core.dll

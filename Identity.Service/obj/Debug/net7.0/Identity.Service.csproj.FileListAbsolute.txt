@@ -1,0 +1,17 @@
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\bin\Debug\net7.0\Identity.Service.deps.json
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\bin\Debug\net7.0\Identity.Service.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\bin\Debug\net7.0\Identity.Service.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\bin\Debug\net7.0\Identity.Core.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\bin\Debug\net7.0\Identity.Repository.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\bin\Debug\net7.0\Identity.Repository.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\bin\Debug\net7.0\Identity.Core.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.csproj.AssemblyReference.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.AssemblyInfoInputs.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.AssemblyInfo.cs
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.csproj.CoreCompileInputs.cache
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.csproj.CopyComplete
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\refint\Identity.Service.dll
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\Identity.Service.pdb
+C:\Users\BatuhanBedir\OneDrive\Masaüstü\Asp.NetCore Identity\Identity.Web\Identity.Service\obj\Debug\net7.0\ref\Identity.Service.dll
