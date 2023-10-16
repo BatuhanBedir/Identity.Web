@@ -2,7 +2,9 @@ using Identity.Web.ClaimProviders;
 using Identity.Web.Extensions;
 using Identity.Web.Models;
 using Identity.Web.OptionsModels;
+using Identity.Web.Permissions;
 using Identity.Web.Requirements;
+using Identity.Web.Seeds;
 using Identity.Web.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -50,7 +52,26 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("ViolencePolicy", policy =>
     {
-        policy.AddRequirements(new ViolenceRequirement() { ThresholdAge = 18 });
+            policy.AddRequirements(new ViolenceRequirement() { ThresholdAge = 18 });
+    });
+    options.AddPolicy("OrderPermissionReadAndDelete", policy =>
+    {
+        policy.RequireClaim("permission", Permission.Order.Read);
+        policy.RequireClaim("permission", Permission.Order.Delete);
+        policy.RequireClaim("permission", Permission.Stock.Delete);
+    });
+    
+    options.AddPolicy("Permission.Order.Read", policy =>
+    {
+        policy.RequireClaim("permission", Permission.Order.Read);
+    });
+    options.AddPolicy("Permission.Order.Delete", policy =>
+    {
+        policy.RequireClaim("permission", Permission.Order.Delete);
+    });
+    options.AddPolicy("Permission.Stock.Delete", policy =>
+    {
+        policy.RequireClaim("permission", Permission.Stock.Delete);
     });
 });
 
@@ -67,6 +88,12 @@ builder.Services.ConfigureApplicationCookie(opt =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AppRole>>();
+    await PermissionSeed.Seed(roleManager);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
